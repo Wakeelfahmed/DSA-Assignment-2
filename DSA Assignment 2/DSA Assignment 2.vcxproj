@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Q1. Hot Potato Game\Children.cpp" />
+    <ClCompile Include="..\Q1. Hot Potato Game\circular_list.cpp" />
+    <ClCompile Include="..\Q1. Hot Potato Game\Node.cpp" />
+    <ClCompile Include="..\Q1. Hot Potato Game\Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Q1. Hot Potato Game\Children.h" />
+    <ClInclude Include="..\Q1. Hot Potato Game\circular_list.h" />
+    <ClInclude Include="..\Q1. Hot Potato Game\Node.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,18 +137,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Children.cpp" />
-    <ClCompile Include="circular_list.cpp" />
-    <ClCompile Include="Journal 4 Q2Source.cpp" />
-    <ClCompile Include="Node.cpp" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Children.h" />
-    <ClInclude Include="circular_list.h" />
-    <ClInclude Include="Node.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

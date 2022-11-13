@@ -1,6 +1,9 @@
 #include"circular_list.h"
 #include<iostream>
 using namespace std;
+#include<windows.h>
+#include<iomanip>
+HANDLE Console1 = GetStdHandle(STD_OUTPUT_HANDLE);
 circular_list::circular_list() : head(NULL) { }
 Node* circular_list::get_head() const { return head; }
 bool circular_list::isEmpty() const {
@@ -8,7 +11,7 @@ bool circular_list::isEmpty() const {
 		return true;
 	return false;
 }
-void circular_list::insert_beg(int v) {
+void circular_list::insert_beg(Children v) {
 	Node* NewNode = new Node(v);
 	if (isEmpty()) {
 		head = NewNode;
@@ -23,7 +26,7 @@ void circular_list::insert_beg(int v) {
 		p->next = head;
 	}
 }
-void circular_list::insert_specfic_Position(int Position, int newvalue) {
+void circular_list::insert_specfic_Position(int Position, Children newvalue) {
 	int position_count = 1;
 	if (Position > Number_of_Nodes()) {
 		cout << "List has less nodes than the place, Node CAN't be inserted!!\n";
@@ -50,7 +53,7 @@ void circular_list::insert_specfic_Position(int Position, int newvalue) {
 		position_count++;
 	}
 }
-void circular_list::insert_after(int oldvalue, int newvalue) {
+void circular_list::insert_after(Children oldvalue, Children newvalue) {
 	Node* p = head;
 	if (isEmpty())
 		return;
@@ -66,7 +69,7 @@ void circular_list::insert_after(int oldvalue, int newvalue) {
 		p = p->next;
 	} while (p != head);
 }
-void circular_list::insert_end(int value) {
+void circular_list::insert_end(Children value) {
 	Node* NewNode = new Node(value);
 	if (isEmpty()) {
 		head = NewNode;
@@ -90,16 +93,37 @@ void circular_list::Display_list() const {
 		return;
 	}
 	Node* p = head;
-	cout << "List: \t";
+	cout << "List:  ";
 	do
 	{
-		cout << p->Data << "\t";
+		cout << p->Data.get_Name() << "     ";
+		//cout << p->Data.get_Name() << " \t ";
 		p = p->next;
 	} while (p != head);
 	cout << endl;
-	//Node* temp = head;
 }
-int Search_in_List(int Value_to_search, circular_list& list) {
+void circular_list::Display_list(Children data) const {
+	if (isEmpty())
+	{
+		cout << "list is empty!!" << endl;
+		return;
+	}
+	Node* p = head;
+	cout << "List:  ";
+	do
+	{
+		if (p->Data == data) {
+			SetConsoleTextAttribute(Console1, 64);
+			cout << p->Data.get_Name() << "     ";
+			SetConsoleTextAttribute(Console1, 15);
+		}
+		else
+			cout << p->Data.get_Name() << "     ";
+		p = p->next;
+	} while (p != head);
+	//cout << endl;
+}
+int Search_in_List(Children Value_to_search, circular_list& list) {
 	Node* p = list.get_head();
 	int Position_counter = 1;
 	do {
@@ -110,7 +134,7 @@ int Search_in_List(int Value_to_search, circular_list& list) {
 	} while (p != list.get_head());
 	return 0; // no record found
 }
-void circular_list::delete_Node(int Value_to_delete) {
+void circular_list::delete_Node(Children Value_to_delete) {
 	if (isEmpty()) {
 		cout << "List is Empty\n"; return;
 	}
@@ -152,19 +176,6 @@ void circular_list::delete_Node(int Value_to_delete) {
 		} while (p->next != head);
 	}
 }
-circular_list circular_list::concatenate(const circular_list& list2) {
-	circular_list Result = *this;
-	Node* p = get_head();	Node* loop2 = list2.get_head();
-	while (p->next != get_head())
-		p = p->next;
-	while (loop2->next != list2.get_head())
-		loop2 = loop2->next;
-	loop2->next = head;	//connect last node of list2 to head of list1 making circular
-	p->next = list2.get_head();//connect last node of list1 to head of list2.
-	cout << "Concatenated list is:\n";
-	Result.Display_list();
-	return Result;
-}
 int circular_list::Number_of_Nodes() const {
 	if (isEmpty())
 	{
@@ -173,33 +184,11 @@ int circular_list::Number_of_Nodes() const {
 	}
 	int Counter = 0;
 	Node* p = head;
-	do{
+	do {
 		Counter++;
 		p = p->next;
 	} while (p != head);
 	return Counter;
-}
-circular_list::~circular_list() {
-	//cout << "Entering ~\n";
-	if (isEmpty())
-		return;
-	Node* p = head;
-	Node* q = head->next;
-	do {
-		//cout << "Deleteing:" << p->Data << endl;
-		delete p;
-		p = q;
-		if (p != head)
-			q = q->next;
-		if (p == head) {
-			//cout << "Returing ~\n";
-			//return;
-		}
-	} while (p != head);
-	//cout << "Leaving ~\n";
-}
-circular_list::circular_list(circular_list& list) {
-	head = list.head;
 }
 Node* circular_list::getNode(int pos) {
 	Node* p = head;
@@ -209,7 +198,7 @@ Node* circular_list::getNode(int pos) {
 		return head;
 	}
 	int position = 0;
-	cout << "List: \t";
+	//cout << "List: \t";
 	do
 	{
 		position++;
@@ -217,7 +206,7 @@ Node* circular_list::getNode(int pos) {
 		{
 			return p;
 		}
-		cout << p->Data << "\t";
+		//cout << p->Data << "\t";
 		p = p->next;
 	} while (p != head);
 }
