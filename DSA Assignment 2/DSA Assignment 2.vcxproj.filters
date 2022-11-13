@@ -15,30 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="circular_list.cpp">
+    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Journal 4 Q2Source.cpp">
+    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Children.cpp">
+    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Process.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="circular_list.h">
+    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
+    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Process.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Children.h">
+    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
