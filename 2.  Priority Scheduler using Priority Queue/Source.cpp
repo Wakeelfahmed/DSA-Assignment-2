@@ -10,9 +10,9 @@ void Display_font_rear(Circular_Queue Queue) {
 }
 void read_File(Process p1[]) {
 	ifstream file("Input.txt");
-	if (!file)
-		cout << "File Not Found";
-	cout << "reading\n";
+	if (!file) {
+		cout << "File Not Found"; return;
+	}
 	int Levels_of_Priorities, Number_Of_Processes;
 	file >> Levels_of_Priorities;
 	file >> Number_Of_Processes;
@@ -22,22 +22,20 @@ void read_File(Process p1[]) {
 	while (!file.eof())
 	{
 		int i = 0, loop = 0;
-		file >> p1[i].Process_Name;
-		cout << "Process_Name" << p1[i].Process_Name << endl;
-		file >> Time;
-		cout << "TIME:" << Time << endl;
-		bool semicolon_detect = 0;
-		while (Time[i] != ':')
+		file >> p1[loop].Process_Name >> Time >> p1[loop].execution_time >> p1[loop].Priority;
+		p1[i].Extract_Time_fr_string(Time);
+		/*while (Time[i] != ':')
 		{
 			Hrs += Time[i];
 			i++;
 		}
-		cout << "HRS:" << Hrs << endl;
+		p1[loop].arrival_time.HR = stoi(Hrs);
 		for (i++; i < Time.size(); i++)
 			Min += Time[i];
-		cout << "Mins " << Min << endl;
-		file >> p1[i].execution_time;
-		file >> p1[i].Priority;
+		p1[loop].arrival_time.MIN = stoi(Min);*/
+		p1[loop].Display_Process_Details();
+		cout << endl;
+		loop++;
 	}
 }
 int main() {
@@ -45,18 +43,17 @@ int main() {
 	read_File(p1);
 	Circular_Queue Queue(10);
 	int val = 0;
-	while (val != 100)
-	{
-		cout << "Enter value to enqueue"; cin >> val;
-		Queue.Enqueue(val);
-		Queue.Display_Queue();
-	}
-	system("CLS");
-	while (1)
-	{
-		Queue.Display_Queue();
-		Queue.dequeue();
-		_getch();
-	}
-
+	//while (val != 100)
+	//{
+	//	cout << "Enter value to enqueue"; cin >> val;
+	//	Queue.Enqueue(val);
+	//	Queue.Display_Queue();
+	//}
+	//system("CLS");
+	//while (1)
+	//{
+	//	Queue.Display_Queue();
+	//	Queue.dequeue();
+	//	_getch();
+	//}
 }
