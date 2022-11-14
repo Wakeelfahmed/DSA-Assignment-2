@@ -30,12 +30,12 @@ void read_File(Process p1[]) {
 }
 void Swap(Process& Process_Array, Process& Process_Array1) {
 	Process Temp = Process_Array1;
-	Process_Array1 = Process_Array1;
+	Process_Array1 = Process_Array;
 	Process_Array = Temp;
 }
 void Sort(Process Process_Array[], int Number_of_Process) {
 	int j;
-	cout << "List Before Sorting\n";
+	cout << "Array Before Sorting\n";
 	for (int i = 0; i < Number_of_Process; i++)
 		Process_Array[i].Display_Process_Details();
 	for (int loop = 0; loop < Number_of_Process; loop++)
@@ -43,18 +43,19 @@ void Sort(Process Process_Array[], int Number_of_Process) {
 			if (Process_Array[j].Priority < Process_Array[j + 1].Priority == 1)
 			{
 				Swap(Process_Array[j], Process_Array[j + 1]);
-			/*	Process Temp = Process_Array[j];
-				Process_Array[j] = Process_Array[j + 1];
-				Process_Array[j + 1] = Temp;*/
+				/*	Process Temp = Process_Array[j];
+					Process_Array[j] = Process_Array[j + 1];
+					Process_Array[j + 1] = Temp;*/
 			}
 			if (Process_Array[j].Priority == Process_Array[j + 1].Priority
 				&& !(Process_Array[j].arrival_time < Process_Array[j + 1].arrival_time == 1)) {
-				Process Temp = Process_Array[j];
+				Swap(Process_Array[j], Process_Array[j + 1]);
+				/*Process Temp = Process_Array[j];
 				Process_Array[j] = Process_Array[j + 1];
-				Process_Array[j + 1] = Temp;
+				Process_Array[j + 1] = Temp;*/
 			}
 		}
-	cout << "\nSorted List:\n";
+	cout << "\Array List:\n";
 	for (int i = 0; i < Number_of_Process; i++)
 		Process_Array[i].Display_Process_Details();
 
