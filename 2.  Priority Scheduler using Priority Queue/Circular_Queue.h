@@ -1,17 +1,18 @@
 #pragma once
+#include"Process.h"
 class Circular_Queue
 {
-private:
-	int* myArray;
-	int front, rear, count, size;
+//private:
 public:
-	int get_Front() const;
-	int get_Rear() const;
+	Process* myArray;
+	int front, rear, count, size;
+	Process get_Front() const;
+	Process get_Rear() const;
 	Circular_Queue(int);
 	bool isEmpty();
 	bool isFull();
-	void Enqueue(int value);
-	int dequeue();
+	void Enqueue(Process value);
+	Process dequeue();
 	void Display_Queue();
 };
 

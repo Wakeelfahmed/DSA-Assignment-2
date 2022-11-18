@@ -3,15 +3,15 @@
 using namespace std;
 Circular_Queue::Circular_Queue(int s)
 {
-	myArray = new int[s];
+	myArray = new Process[s];
 	size = s;
 	front = rear = count = 0;
 }
-int Circular_Queue::get_Front() const {
+Process Circular_Queue::get_Front() const {
 	return myArray[front];
 }
-int Circular_Queue::get_Rear() const {
-	return myArray[rear-1];
+Process Circular_Queue::get_Rear() const {
+	return myArray[rear + 1];
 }
 bool Circular_Queue::isEmpty() {
 	if (count == 0)
@@ -25,7 +25,7 @@ bool Circular_Queue::isFull() {
 	else
 		return false;
 }
-void Circular_Queue::Enqueue(int value) {
+void Circular_Queue::Enqueue(Process value) {
 	if (!isFull())
 	{
 		myArray[rear] = value;
@@ -35,22 +35,49 @@ void Circular_Queue::Enqueue(int value) {
 	else
 		cout << "Queue Overflow";
 }
-int Circular_Queue::dequeue() {
+Process Circular_Queue::dequeue() {
 	if (!isEmpty()) {
-		int val = myArray[front];
+		Process val = myArray[front];
+		myArray[front].~Process();
 		front = (front + 1) % size;
 		count--;
 		return val;
 	}
 	else
 		cout << "Queue Underflow";
-	return -1;
 }
+//Process Circular_Queue::dequeue() {
+//	if (!isEmpty()) {
+//		Process val = myArray[front];
+//		myArray[front].Process_Name = "";
+//		if (front == rear) {
+//			front = -1;
+//			rear = -1;
+//		}
+//		// Q has only one element,
+//		// so we reset the queue after deleting it.
+//		else {
+//			front = (front + 1) % size;
+//		}
+//		return val;
+//		//cout << "Dequeuing " << val.Process_Name << endl;
+//		//front = (front + 1) % size;
+//		//count--;
+//		//return val;
+//	}
+//	else
+//		cout << "Queue Underflow";
+//	//return -1;
+//}
 void Circular_Queue::Display_Queue() {
-	cout << "Front: ";
-	for (int i = 0; i < count; i++)
+	int i;
+	if (isEmpty())
 	{
-		cout << myArray[i] << "    ";
+		cout << "Queue is empty\n"; return;
+	}
+	cout << "Front: ";
+	for (i = front; i != rear; i = ((i + 1) % size)) {
+		cout << myArray[i].Process_Name << "     "; // print elem
 	}
 	cout << "\b\b\b:Rear\n";
 }

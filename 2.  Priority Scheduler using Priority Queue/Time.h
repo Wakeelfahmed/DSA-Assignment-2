@@ -27,14 +27,9 @@ public:
 	int get_HR() const;
 	int get_Min() const;
 	void Display_Time() const;
-	bool operator<(Time t)
-	{
-		if (HR < t.HR && MIN < t.MIN)
-			return true;
-		else if (HR == t.HR && MIN < t.MIN)
-			return true;
-		return false;
-	}
-
+	bool operator<(Time t)const;
+	bool operator>(Time t)const;
+	bool operator==(Time t)const;
+	~Time();
 };
 
