@@ -93,11 +93,9 @@ void circular_list::Display_list() const {
 		return;
 	}
 	Node* p = head;
-	cout << "List:  ";
 	do
 	{
 		cout << p->Data.get_Name() << "     ";
-		//cout << p->Data.get_Name() << " \t ";
 		p = p->next;
 	} while (p != head);
 	cout << endl;
@@ -109,19 +107,18 @@ void circular_list::Display_list(Children data) const {
 		return;
 	}
 	Node* p = head;
-	cout << "List:  ";
 	do
 	{
 		if (p->Data == data) {
 			SetConsoleTextAttribute(Console1, 64);
-			cout << p->Data.get_Name() << "     ";
+			cout << p->Data.get_Name();
 			SetConsoleTextAttribute(Console1, 15);
+			cout << "     ";
 		}
 		else
 			cout << p->Data.get_Name() << "     ";
 		p = p->next;
 	} while (p != head);
-	//cout << endl;
 }
 int Search_in_List(Children Value_to_search, circular_list& list) {
 	Node* p = list.get_head();

@@ -2,7 +2,7 @@
 #include"circular_list.h"
 #include<conio.h>
 #include<ctime>
-#include<windows.h>
+#include<windows.h> 
 using namespace std;
 HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE);
 int Search_in_list(Children Value_to_Search, circular_list list) {
@@ -18,7 +18,6 @@ int Search_in_list(Children Value_to_Search, circular_list list) {
 	return -1; // Not in list
 }
 void Play_Game(circular_list list, int Timer_set) {
-
 	bool check = 1;
 	cout << "Starting Players:";	list.Display_list();
 	cout << "# of Starting Players " << list.Number_of_Nodes() << endl;
@@ -46,7 +45,7 @@ void Play_Game(circular_list list, int Timer_set) {
 			for (size_t i = 0; i < 59999999; i++) {} //Artifical Lag(optional) in the see the Working of game .
 			if (timetaken == Timer_set)
 			{
-				cout << "\n\33[2K\Round:" << round << "  Eliminated: \"" << p->Data.get_Name() << "\"" << endl;
+				cout << "\n\33[2K\Round:" << round << "  Eliminated: \"\033[5m" << p->Data.get_Name() << "\033[0m\"" << endl;
 				check = 0;
 				break;
 			}
@@ -65,12 +64,12 @@ void Play_Game(circular_list list, int Timer_set) {
 			cout << "\33[2KWinner is " << p->Data.get_Name() << " \tPos in List was: " << Search_in_list(p->Data, list) << endl;
 			SetConsoleTextAttribute(Console, 15);
 			SetConsoleCursorPosition(Console, { 48,12 });
-			cout << "Press any key to Leave\n";
+			cout << "\033[5mPress any key to Leave\033[0m\n";
 			_getch();
 			return;
 		}
 		SetConsoleCursorPosition(Console, { 48,9 });
-		cout << "\33[2KPress any key to Resume Round";
+		cout << "\33[2K\033[5mPress many key to Resume Round\033[0m";
 		_getch();
 		SetConsoleCursorPosition(Console, { 30,5 });
 		cout << "\33[2K\n";
@@ -79,7 +78,7 @@ void Play_Game(circular_list list, int Timer_set) {
 int input[2];
 void Main_Menu() {
 	cout << "WELCOME TO HOT POTATO GAME\n";
-	cout << "1. Add Players     2. Remove Players     3. Start Game     4.Display Players     5. Exit Game\n";
+	cout << "1. Add Players     2. Remove Players     3. Start Game     4. Display Players     5. Exit Game\n";
 	input[0] = _getch() - '0';
 	system("CLS");
 }
@@ -92,9 +91,9 @@ int main() {
 	list.insert_end(c2);
 	Children c3("Kaleem", 19);
 	list.insert_end(c3);
-	Children c4("qwertyuiop", 19);
+	Children c4("Ahmed", 19);
 	list.insert_end(c4);
-	Children c5("qwertyuisdffsop", 19);
+	Children c5("Hadia", 19);
 	list.insert_end(c5);
 	while (1)
 	{
