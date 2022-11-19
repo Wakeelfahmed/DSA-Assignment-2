@@ -8,11 +8,11 @@
 using namespace std;
 int Levels_of_Priorities, Number_Of_Processes;
 priority_queue<Process> Priority_Process_Schedule; //STL Priority Queue
-Process Temp_for_Process;
+Process Temp_for_Process; //temp storage for Processes
 void Read_fr_File_AND_Push_to_Priority_Queue() {
 	ifstream file("Input.txt");
 	if (!file) {
-		cout << "File Not Found"; return;
+		cout << "File(Input.txt) Not Found !!\n"; _getch(); exit(1);
 	}
 	file >> Levels_of_Priorities >> Number_Of_Processes;
 	string Time; //For Time in file, then convert to int.
@@ -24,7 +24,7 @@ void Read_fr_File_AND_Push_to_Priority_Queue() {
 	}
 }
 int main() {
-	Read_fr_File_AND_Push_to_Priority_Queue();//Read Processes & push to Priority Queue
+	Read_fr_File_AND_Push_to_Priority_Queue();//Read Processes fr file & push to Priority Queue
 	cout << "Levels of Priorities:" << Levels_of_Priorities
 		<< "\nNumber Of Processes:" << Number_Of_Processes << endl; //Read(red) fr File
 	cout << "\x1b[3;96mPriority\tProcess Name\t\tArrival Time(hr:min)\tExecution Time(mins)\n\033[0m";//Italic text

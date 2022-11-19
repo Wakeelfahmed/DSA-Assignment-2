@@ -33,12 +33,6 @@ bool Time::operator>(Time t)const
 		return true;
 	return false;
 }
-bool Time::operator==(Time t)const
-{
-	if (HR == t.HR && MIN == t.MIN)
-		return true;
-	return false;
-}
 Time::~Time() {
 	HR = 0; MIN = 0;
 }

@@ -18,17 +18,15 @@ void Process::Extract_Time_fr_string(string Time) {
 		HR += Time[i];
 		i++;
 	}
-	Arrival_Time.HR = stoi(HR);
 	for (i++; i < Time.size(); i++) //start fr One index ahead to skip ':'
 		Min += Time[i];
-	Arrival_Time.MIN = stoi(Min);
+	Arrival_Time.setTime(stoi(HR), stoi(Min));
 }
 Process::~Process() {
 	Process_Name = ""; Priority = 0; Execution_Time = 0;
 }
 bool Process::operator<(Process p2) const {
-	if (Priority == p2.Priority) {
+	if (Priority == p2.Priority)
 		return !(Arrival_Time < p2.Arrival_Time);
-	}
 	return !(Priority > p2.Priority);
 }
