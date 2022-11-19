@@ -19,13 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.cpp" />
     <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Process.cpp" />
     <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Source.cpp" />
     <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.h" />
     <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Process.h" />
     <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Time.h" />
   </ItemGroup>

@@ -28,7 +28,7 @@ Process::~Process() {
 }
 bool Process::operator<(Process p2) const {
 	if (Priority == p2.Priority) {
-		return (Arrival_Time < p2.Arrival_Time);
+		return !(Arrival_Time < p2.Arrival_Time);
 	}
-	return (Priority > p2.Priority);
+	return !(Priority > p2.Priority);
 }

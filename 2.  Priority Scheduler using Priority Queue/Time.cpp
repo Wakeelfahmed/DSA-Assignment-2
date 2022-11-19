@@ -21,32 +21,23 @@ bool Time::operator<(Time t)const
 {
 	if (HR < t.HR && MIN < t.MIN)
 		return true;
-	/*if (HR <= t.HR && MIN < t.MIN)
-		return true;*/
 	else if (HR == t.HR && MIN < t.MIN)
 		return true;
-	//return false;
-	//cout << "FALSE";
-	//return isFemale && !compareHuman.isFemale;
+	return false;
 }
 bool Time::operator>(Time t)const
 {
 	if (HR > t.HR && MIN > t.MIN)
 		return true;
-	/*if (HR <= t.HR && MIN < t.MIN)
-		return true;*/
 	else if (HR == t.HR && MIN > t.MIN)
 		return true;
-	//return false;
-	//cout << "FALSE";
-	//return isFemale && !compareHuman.isFemale;
+	return false;
 }
 bool Time::operator==(Time t)const
 {
 	if (HR == t.HR && MIN == t.MIN)
 		return true;
 	return false;
-	//cout << "FALSE";
 }
 Time::~Time() {
 	HR = 0; MIN = 0;

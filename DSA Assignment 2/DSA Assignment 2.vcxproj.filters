@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\2.  Priority Scheduler using Priority Queue\Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -29,13 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Circular_Queue.h">
+    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Process.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\2.  Priority Scheduler using Priority Queue\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
